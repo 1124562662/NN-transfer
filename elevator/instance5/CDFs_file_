@@ -1,0 +1,251 @@
+ExistentialQuantification:
+(?e : elevator) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+elevator-dir-up(?e)
+Existential-fluent_name:
+elevator-closed(?e)
+end
+The sf:
+person-waiting-up(?f)
+obj:
+?f 
+floor
+end
+
+fix-fluent_name:
+person-waiting-up(?f)
+
+fix-fluent_name:
+ARRIVE-PARAM(?f)
+ExistentialQuantification:
+(?e : elevator) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+elevator-dir-up(?e)
+Existential-fluent_name:
+elevator-closed(?e)
+end
+The sf:
+person-waiting-down(?f)
+obj:
+?f 
+floor
+end
+
+fix-fluent_name:
+person-waiting-down(?f)
+
+fix-fluent_name:
+ARRIVE-PARAM(?f)
+ExistentialQuantification:
+(?f : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+TOP-FLOOR(?f)
+end
+ExistentialQuantification:
+(?f : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+elevator-dir-up(?e)
+Existential-fluent_name:
+elevator-closed(?e)
+Existential-fluent_name:
+person-waiting-up(?f)
+end
+The sf:
+person-in-elevator-going-up(?e)
+obj:
+?e 
+elevator
+end
+
+fix-fluent_name:
+person-in-elevator-going-up(?e)
+ExistentialQuantification:
+(?f : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+BOTTOM-FLOOR(?f)
+end
+ExistentialQuantification:
+(?f : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+elevator-dir-up(?e)
+Existential-fluent_name:
+elevator-closed(?e)
+Existential-fluent_name:
+person-waiting-down(?f)
+end
+The sf:
+person-in-elevator-going-down(?e)
+obj:
+?e 
+elevator
+end
+
+fix-fluent_name:
+person-in-elevator-going-down(?e)
+The sf:
+elevator-closed(?e)
+obj:
+?e 
+elevator
+end
+
+fix-fluent_name:
+elevator-closed(?e)
+
+fix-fluent_name:
+open-door-going-up(?e)
+
+fix-fluent_name:
+open-door-going-down(?e)
+
+fix-fluent_name:
+close-door(?e)
+The sf:
+elevator-dir-up(?e)
+obj:
+?e 
+elevator
+end
+
+fix-fluent_name:
+open-door-going-up(?e)
+
+fix-fluent_name:
+open-door-going-down(?e)
+
+fix-fluent_name:
+elevator-dir-up(?e)
+ExistentialQuantification:
+(?cur : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?cur)
+Existential-fluent_name:
+ADJACENT-UP(?cur,?f)
+end
+ExistentialQuantification:
+(?cur : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?cur)
+Existential-fluent_name:
+ADJACENT-UP(?f,?cur)
+end
+ExistentialQuantification:
+(?next : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+ADJACENT-UP(?f,?next)
+end
+ExistentialQuantification:
+(?next : floor) 
+Existential-fluent_name:
+elevator-at-floor(?e,?f)
+Existential-fluent_name:
+ADJACENT-UP(?next,?f)
+end
+The sf:
+elevator-at-floor(?e, ?f)
+obj:
+?e 
+elevator
+obj:
+?f 
+floor
+end
+
+fix-fluent_name:
+elevator-closed(?e)
+
+fix-fluent_name:
+move-current-dir(?e)
+
+fix-fluent_name:
+elevator-at-floor(?e,?f)
+
+fix-fluent_name:
+move-current-dir(?e)
+
+fix-fluent_name:
+elevator-dir-up(?e)
+
+fix-fluent_name:
+move-current-dir(?e)
+
+fix-fluent_name:
+elevator-dir-up(?e)
+
+fix-fluent_name:
+move-current-dir(?e)
+
+fix-fluent_name:
+elevator-dir-up(?e)
+
+fix-fluent_name:
+elevator-at-floor(?e,?f)
+
+fix-fluent_name:
+move-current-dir(?e)
+
+fix-fluent_name:
+elevator-dir-up(?e)
+
+fix-fluent_name:
+elevator-at-floor(?e,?f)
+Sumation:
+(?e : elevator) 
+sum-fluent_name:
+person-in-elevator-going-up(?e)
+sum-fluent_name:
+elevator-dir-up(?e)
+end
+Sumation:
+(?e : elevator) 
+sum-fluent_name:
+person-in-elevator-going-down(?e)
+sum-fluent_name:
+elevator-dir-up(?e)
+end
+Sumation:
+(?e : elevator) 
+sum-fluent_name:
+person-in-elevator-going-up(?e)
+sum-fluent_name:
+elevator-dir-up(?e)
+end
+Sumation:
+(?e : elevator) 
+sum-fluent_name:
+person-in-elevator-going-down(?e)
+sum-fluent_name:
+elevator-dir-up(?e)
+end
+Sumation:
+(?f : floor) 
+sum-fluent_name:
+person-waiting-up(?f)
+sum-fluent_name:
+person-waiting-down(?f)
+end
+UniversalQuantification:
+(?e : elevator) 
+Universal-fluent_name:
+open-door-going-up(?e)
+Universal-fluent_name:
+open-door-going-down(?e)
+Universal-fluent_name:
+close-door(?e)
+Universal-fluent_name:
+move-current-dir(?e)
+end
