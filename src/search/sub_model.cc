@@ -17,7 +17,7 @@ void sub_model::save_submodel(std::string path) {
                     path + "layer_bias_sub" + std::to_string(i));
     }
 }
-void sub_model::initialize(std::string path, int layer_size_ = 4) {
+void sub_model::initialize(std::string path, int layer_size_) {
     assert(layer_size_ = this->sub_mod_size - 1);
     for (int i = 0; i < layer_size_; i++) {
         torch::Tensor weights;
@@ -30,6 +30,7 @@ void sub_model::initialize(std::string path, int layer_size_ = 4) {
         torch::load(bias, path + "layer_bias_sub" + std::to_string(i));
         bias = bias.requires_grad_(true);
         bias = register_parameter("bias" + std::to_string(i), bias);
+       
         this->layer_biases_sub.push_back(bias);
     }
 }
@@ -60,11 +61,11 @@ void sub_model::initialize(std::vector<int> topology) {
 }
 
 torch::Tensor sub_model::forward(torch::Tensor X_input) {
-    for (unsigned int i = 0; i < layer_weights_sub.size(); ++i) {
+    for (unsigned int i = 0; i < this->layer_weights_sub.size(); ++i) {
         X_input = torch::leaky_relu(torch::addmm(
-            this->layer_biases_sub[i], X_input, this->layer_weights_sub[i]),0.01);
+            this->layer_biases_sub[i], X_input, (this->layer_weights_sub)[i]),0.01);
     }
-
+//cout<<"ll"<<X_input.sizes()<<","<<to_string(this->layer_weights_sub.size())<< endl;
     // X_input = torch::relu(fc1->forward(X_input));
     // X_input = torch::relu(fc2->forward(X_input));
     return X_input;
