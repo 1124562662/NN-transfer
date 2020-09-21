@@ -567,7 +567,17 @@ void relation_net::build_domain_graph() {
         //
         it3++;
     }
-
+    
+   // manually added
+   if (this->dg.Domian_relation_V_map.count("(master)") == 0) {
+        vector<string> tmp;
+        tmp.push_back("master");
+        std::map<std::string, AbstractVariable> p2;
+        relation_type_vertex rtv = relation_type_vertex("(master)", tmp, p2);
+        this->dg.Domian_relation_V_map["(master)"] = rtv; 
+        tupleName2tuple["(master)"] = tmp;
+    }
+    
     // object V
     set<string> Obj_withMaster = ALL_patameters_types;
     Obj_withMaster.insert("master");
